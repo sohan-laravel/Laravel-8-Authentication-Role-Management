@@ -1,39 +1,47 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>srtdash - ICO Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>@yield('title', 'Roles Admin Panel')</title>
 
-    @include('backend.partials.style')
+  @include('backend.partials.style')
 
 </head>
 
-<body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+  @include('backend.partials.sidebar')
+        <!-- TopBar -->
+@include('backend.partials.header')
+        <!-- Topbar -->
 
+        <!-- Container Fluid-->
 
-    <!-- preloader area start -->
-    {{-- <div id="preloader">
-        <div class="loader"></div>
-    </div> --}}
-    <!-- preloader area end -->
+ @yield('admin-content')
+          <!--Row-->
+          <!-- Modal Logout -->
+        
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+     @include('backend.partials.footer')
+      <!-- Footer -->
+    {{-- </div>
+  </div> --}}
 
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-    @include('backend.partials.sidebar')
-
-    @include('backend.partials.header')
-
-    @yield('admin-content')
-
-    @include('backend.partials.footer')
-
-    @include('backend.partials.scripts')
-
+   @include('backend.partials.scripts')
 </body>
 
 </html>

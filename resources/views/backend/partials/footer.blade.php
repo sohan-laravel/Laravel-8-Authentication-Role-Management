@@ -1,6 +1,9 @@
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2021. All right reserved. Developed by <a href="#">Sohan</a>.
-                </p>
-            </div>
-        </footer>
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
+              <b><a href="#" target="_blank">Sohan</a></b>
+            </span>
+          </div>
+        </div>
+      </footer>
