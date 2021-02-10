@@ -28,5 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('roles', RolesController::class);
+    Route::resource('roles', RolesController::class, [
+        'as' => 'admin'
+    ]);
 });
