@@ -58,7 +58,14 @@
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $role->name }}</td>
-                                            <td></td>
+                                            <td>
+                                                <a href="#" class="btn btn-outline-danger mb-1 btn-sm">
+                                                   <i class="fas fa-trash"></i>
+                                                </a>
+                                                <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-outline-success mb-1 btn-sm">
+                                                   <i class="fas fa-check"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
