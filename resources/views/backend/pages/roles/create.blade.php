@@ -13,7 +13,7 @@
             <h1 class="h3 mb-0 text-gray-800">Create New Role</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> Create New Role</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">All Role</a></li>
             </ol>
         </div>
         {{-- @include('backend.partials.messages') --}}

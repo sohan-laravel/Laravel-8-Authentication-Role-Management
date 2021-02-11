@@ -63,7 +63,7 @@ class RolesController extends Controller
 
         Alert::success('Congratulations', 'You have created a role!....');
 
-        return back();
+        return redirect('/admin/roles');
     }
 
     /**
@@ -103,7 +103,7 @@ class RolesController extends Controller
         //validate data
 
         $request->validate([
-            'name' => 'required|max:100'
+            'name' => 'required|max:100|unique:roles,name,' . $id
         ], [
             'name.required' => 'Please give a role name'
         ]);
@@ -130,6 +130,11 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::findById($id);
+        if (!is_null($role)) {
+            $role->delete();
+        }
+        Alert::success('Congrats', 'Role Delete Successfully!....');
+        return back();
     }
 }

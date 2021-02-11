@@ -25,6 +25,13 @@
                     <li class="breadcrumb-item">Tables</li>
                     <li class="breadcrumb-item active" aria-current="page">Role List</li>
                 </ol>
+
+            </div>
+
+            <div class="text-right"> <a href="{{ route('admin.roles.create') }}"
+                    class="btn btn-outline-primary mb-1 btn-sm">
+                    Create Role
+                </a>
             </div>
 
             <!-- Row -->
@@ -43,6 +50,7 @@
                                     <tr>
                                         <th>SI</th>
                                         <th>Name</th>
+                                        <th>Permission</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -59,11 +67,33 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $role->name }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-outline-danger mb-1 btn-sm">
-                                                   <i class="fas fa-trash"></i>
+                                                @foreach ($role->permissions as $perm)
+                                                    <span class="badge badge-info mr-1">
+                                                        {{ $perm->name }}
+                                                    </span>
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                {{-- <a href="#" class="btn btn-outline-danger mb-1 btn-sm">
+                                                   
+                                                </a> --}}
+
+                                                <a class="btn btn-outline-danger mb-1 btn-sm"
+                                                    href="{{ route('admin.roles.destroy', $role->id) }}"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $role->id }}').submit();">
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
-                                                <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-outline-success mb-1 btn-sm">
-                                                   <i class="fas fa-check"></i>
+
+                                                <form id="delete-form-{{ $role->id }}"
+                                                    action="{{ route('admin.roles.destroy', $role->id) }}" method="POST"
+                                                    style="display: none;">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                </form>
+
+                                                <a href="{{ route('admin.roles.edit', $role->id) }}"
+                                                    class="btn btn-outline-success mb-1 btn-sm">
+                                                    <i class="fas fa-check"></i>
                                                 </a>
                                             </td>
                                         </tr>
