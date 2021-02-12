@@ -16,12 +16,12 @@
           Features
       </div>
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
-              aria-expanded="true" aria-controls="collapseBootstrap">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rolesSidebar"
+              aria-expanded="true" aria-controls="rolesSidebar">
               <i class="far fa-fw fa-window-maximize"></i>
               <span>Roles & Permissions</span>
           </a>
-          <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap"
+          <div id="rolesSidebar" class="collapse" aria-labelledby="headingBootstrap"
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Roles
@@ -34,6 +34,27 @@
               </div>
           </div>
       </li>
+
+            <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usersSidebar"
+              aria-expanded="true" aria-controls="usersSidebar">
+              <i class="far fa-fw fa-window-maximize"></i>
+              <span>Users</span>
+          </a>
+          <div id="usersSidebar" class="collapse" aria-labelledby="headingBootstrap"
+              data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Users
+                  </h6>
+                  <a class="collapse-item {{ Route::is('admin.users.create') ? 'active' : '' }}"
+                      href="{{ route('admin.users.create') }}">Create User</a>
+                  <a class="collapse-item {{ Route::is('admin.users.index') ? 'active' : '' }}"
+                      href="{{ route('admin.users.index') }}">All User</a>
+                  <a class="collapse-item" href="#">Permission</a>
+              </div>
+          </div>
+      </li>
+
 
   </ul>
   <!-- Sidebar -->
