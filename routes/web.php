@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\Auth\ForgetPasswordController;
+use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\Backend\UsersController;
@@ -36,4 +38,18 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('users', UsersController::class, [
         'as' => 'admin'
     ]);
+
+    // login routes
+
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login/submit', [LoginController::class, 'login'])->name('admin.login.submit');
+
+    // logout routes
+
+    Route::post('/logout/submit', [LoginController::class, 'logout'])->name('admin.logout.submit');
+
+    // Forget Password routes
+
+    Route::get('/password/reset', [ForgetPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
+    Route::post('/password/reset/submit', [ForgetPasswordController::class, 'reset'])->name('admin.password.update');
 });

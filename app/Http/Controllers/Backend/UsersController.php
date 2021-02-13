@@ -58,8 +58,8 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-        $role = Role::create(['name' => $request->name]);
-        if ($role) {
+        // $role = Role::create(['name' => $request->name]);
+        if ($request->roles) {
             $user->assignRole(['name' => $request->roles]);
         }
         $user->save();
@@ -118,7 +118,7 @@ class UsersController extends Controller
         }
 
         $user->roles()->detach();
-        // $role = Role::create(['name' => $request->name]);
+
         if ($request->roles) {
             $user->assignRole(['name' => $request->roles]);
         }
@@ -142,9 +142,11 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+
         if (!is_null($user)) {
             $user->delete();
         }
+
         Alert::success('Congrats', 'User Delete Successfully!....');
         return back();
     }

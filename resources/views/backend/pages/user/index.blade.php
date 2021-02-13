@@ -70,14 +70,14 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td></td>
-                                            {{-- <td>
-                                                @foreach ($user->permissions as $perm)
+                                            {{-- <td></td> --}}
+                                            <td>
+                                                @foreach ($user->roles as $role)
                                                     <span class="badge badge-info mr-1">
-                                                        {{ $perm->name }}
+                                                        {{ $role->name }}
                                                     </span>
                                                 @endforeach
-                                            </td> --}}
+                                            </td>
                                             <td>
                                                 {{-- <a href="#" class="btn btn-outline-danger mb-1 btn-sm">
                                                    
